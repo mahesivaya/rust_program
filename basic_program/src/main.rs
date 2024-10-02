@@ -1,6 +1,8 @@
-mod one;
+mod import;
+mod compare_int;
 
 fn main() {
     println!("Hello, world!");
-    one::hello_lib();
+    import::hello_lib();
+    compare_int::compare_int();
 }
