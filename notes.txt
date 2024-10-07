@@ -1,0 +1,230 @@
+
+Data Structures are used to organise and store data to use it in an effective way when performing data operations.
+Algorithm is a step-by-step procedure, which defines a set of instructions to be executed in a certain order to get the desired output.
+
+
+
+OOPS:
+Abstract is an interface
+
+
+
+Built in Data Structures:
+List, Tuples, Sets, Dict
+
+User-Defined:
+Stack, Queue, Tree, LinkedList, Graph, HeadMap
+
+
+
+
+
+Macro’s are a function that allow us to write less code and macros write other programming code, this process is called as meta programming. Macro’s are like functions but here function is a code and output is also a code.
+Like println is a macro, In the backend macro create a code that execute the println code. 
+Another point is, When we delacre a function we need to show how many parameters we need for that function, But in macro’s function it accepts any number of parameters. 
+
+Function are executed at the time of compiling. But the macor’s code is developed before the compile time, so they are compiled as a regular function.
+
+macro’s are two types.
+1. Declarative macro’s
+2. Procedural macro’s 
+
+Declarative Macros:
+1. Most widely used.
+2. Example.
+    1. let vec1: Vec<i32> = vec![1,2,3];
+	2. let vec2: Vec<&str> = vec![‘a’, ‘b’, ‘c’];
+
+
+* Function-like macros - custom!(...)
+* Derive macros - #[derive(CustomDerive)]
+* Attribute macros - #[CustomAttribute]
+
+
+Struct- variable like tuple 
+Example: 
+struct User {
+ 			   active: bool,
+    			   username: String,
+			   email: String,
+			   sign_in_count: u64,
+			}
+
+
+
+
+Tuples:
+	let tuple = ("hello", 5, 'c'); 
+	or 
+	(&'static str, i32, char)
+				can be of any datatypes
+
+	assert_eq!(tuple.0, "hello"); check first and last variables are equal
+	assert_eq!(tuple.1, 5);
+	assert_eq!(tuple.2, 'c');
+
+
+
+Crate: PIP (packages or libraries)
+
+
+@macro_rules!       : Is used to allow to create meta programming functions, if instead we need more 
+					default macros
+
+
+
+
+Trait: Inheritence (main function and )
+
+struct Sheep { naked: bool, name: &'static str }
+
+trait Animal {
+    // Associated function signature; `Self` refers to the implementor type.
+    fn new(name: &'static str) -> Self;
+
+    // Method signatures; these will return a string.
+    fn name(&self) -> &'static str;
+    fn noise(&self) -> &'static str;
+
+    // Traits can provide default method definitions.
+    fn talk(&self) {
+        println!("{} says {}", self.name(), self.noise());
+    }
+}
+
+impl Sheep {
+    fn is_naked(&self) -> bool {
+        self.naked
+    }
+
+    fn shear(&mut self) {
+        if self.is_naked() {
+            // Implementor methods can use the implementor's trait methods.
+            println!("{} is already naked...", self.name());
+        } else {
+            println!("{} gets a haircut!", self.name);
+
+            self.naked = true;
+        }
+    }
+}
+
+// Implement the `Animal` trait for `Sheep`.
+impl Animal for Sheep {
+    // `Self` is the implementor type: `Sheep`.
+    fn new(name: &'static str) -> Sheep {
+        Sheep { name: name, naked: false }
+    }
+
+    fn name(&self) -> &'static str {
+        self.name
+    }
+
+    fn noise(&self) -> &'static str {
+        if self.is_naked() {
+            "baaaaah?"
+        } else {
+            "baaaaah!"
+        }
+    }
+    
+    // Default trait methods can be overridden.
+    fn talk(&self) {
+        // For example, we can add some quiet contemplation.
+        println!("{} pauses briefly... {}", self.name, self.noise());
+    }
+}
+
+fn main() {
+    // Type annotation is necessary in this case.
+    let mut dolly: Sheep = Animal::new("Dolly");
+    // TODO ^ Try removing the type annotations.
+
+    dolly.talk();
+    dolly.shear();
+    dolly.talk();
+}
+	
+
+
+enums: instead of structs, we can use enums of there is a possibilities of only certain values
+Example: IpAddress: V4 or V6. There is not other values than these two.
+
+enum IpAddress {
+	V4,
+	V6,	
+}
+    let four = IpAddrKind::V4;
+    let six = IpAddrKind::V6;
+
+fn route(ip_kind: IpAddrKind) {}
+
+route(IpAddrKind::V4);
+route(IpAddrKind::V6);
+
+
+
+    enum IpAddrKind {
+        V4,
+        V6,
+    }
+
+    struct IpAddr {
+        kind: IpAddrKind,
+        address: String,
+    }
+
+    let home = IpAddr {
+        kind: IpAddrKind::V4,
+        address: String::from("127.0.0.1"),
+    };
+
+    let loopback = IpAddr {
+        kind: IpAddrKind::V6,
+        address: String::from("::1"),
+    };
+
+
+
+
+Derive: 
+The compiler is capable of providing basic implementations for some traits via the #[derive] attribute. These traits can still be manually implemented if a more complex behavior is required.
+The following is a list of derivable traits:
+* Comparison traits: Eq, PartialEq, Ord, PartialOrd.
+* Clone, to create T from &T via a copy.
+* Copy, to give a type 'copy semantics' instead of 'move semantics'.
+* Hash, to compute a hash from &T.
+* Default, to create an empty instance of a data type.
+* Debug, to format a value using the {:?} formatter.
+
+
+Example:
+Struct Task {
+	Data: int
+}
+impl Task{
+	fn new(Data: &self in impl) : means that we are borrowing that element from above struct
+};
+
+
+
+
+
+:: means path seperator
+use std::io::name
+
+std->crato
+io->module
+name->variabel
+use adds the path to the set of items to look in
+
+
+
+& means reference 
+
+
+
+String vs str:
+String is used when we want to use declare an large value like arrays, lists, tuples, sets
+
+&str is simply string variable like ‘mahesh’
