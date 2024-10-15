@@ -1,0 +1,42 @@
+$ cargo new phrases
+$ cd phrases
+-------------------------
+
+$ tree .
+.
+├── Cargo.toml
+└── src
+    └── lib.rs
+
+1 directory, 2 files
+------------------------
+
+#![allow(unused_variables)]
+fn main() {
+mod english {
+    mod greetings {
+    }
+
+    mod farewells {
+    }
+}
+
+mod japanese {
+    mod greetings {
+    }
+
+    mod farewells {
+    }
+}
+}
+--------------------------
+
+$ cargo build
+   Compiling phrases v0.0.1 (file:///home/you/projects/phrases)
+$ ls target/debug
+build  deps  examples  libphrases-a7448e02a0468eaa.rlib  native
+------------------------
+
+
+
+
