@@ -1,0 +1,37 @@
+Primitive datatypes
+Int
+Float
+Bool
+Char 
+
+
+
+Compund datatypes
+1. arrays-- Should have only same datatypes
+2. Tuples-- Fixed size, Immutable and any datatypes
+3. Slices-- mutable
+4. Slice string: continegous sequence data
+    let numbers:&[i32] = &[1,2,3,4]
+
+
+These are place holders which uses curly braces
+{}
+{:?}
+string vs stringSlice
+
+
+let person:(String, i32, bool) = ['mahesh', 34, true]
+Error
+
+let person:(String, i32, bool) = ['mahesh'.to_string(), 34, true]
+or
+let mut person:String = String::From("Hello",);
+
+String Slice
+let string: String = String::from("Hello",);
+let slice:&str = &string;
+
+
+
+
+Default all datatypes are Immutable 
